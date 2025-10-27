@@ -1,6 +1,8 @@
-package org.example.repository;
+package org.example.datamodels.filters;
 
 
-public interface FilterPolicy {
-    boolean policy();
+import org.example.datamodels.interfaces.ICandidate;
+
+public interface FilterPolicy<T> {
+    boolean policy(ICandidate a,T filter);
 }

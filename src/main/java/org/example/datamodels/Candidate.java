@@ -1,4 +1,6 @@
-package org.example;
+package org.example.datamodels;
 
-public class Candidate {
-}
+import org.example.datamodels.interfaces.ICandidate;
+
+public record Candidate(String name,int yearsOfExperience,String branch)
+        implements ICandidate { }
