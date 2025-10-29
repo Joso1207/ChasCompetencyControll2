@@ -13,4 +13,5 @@ public class NameFilter {
         return c-> c.getFirstName().contains(seq);
     }
 
+
 }
