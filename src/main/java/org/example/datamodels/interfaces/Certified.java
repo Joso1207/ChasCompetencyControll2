@@ -1,7 +1,8 @@
 package org.example.datamodels.interfaces;
 
-import java.util.List;
 
-public interface Certified extends ICandidate {
-    List<String> getCertifications();
+import java.util.Set;
+
+public interface Certified extends Person {
+    Set<String> certificates();
 }

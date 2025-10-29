@@ -1,6 +1,6 @@
 package org.example.datamodels.filters;
 
-import org.example.datamodels.interfaces.ICandidate;
+import org.example.datamodels.interfaces.Person;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -9,8 +9,8 @@ import java.util.function.Predicate;
 public class NameFilter {
 
     @Contract(pure = true)
-    public static @NotNull Predicate<ICandidate> firstNameContains(String seq){
-        return c-> c.firstName().contains(seq);
+    public static @NotNull Predicate<Person> firstNameContains(String seq){
+        return c-> c.getFirstName().contains(seq);
     }
 
 }

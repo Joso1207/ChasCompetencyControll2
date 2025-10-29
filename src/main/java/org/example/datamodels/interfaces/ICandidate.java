@@ -1,12 +1,7 @@
 package org.example.datamodels.interfaces;
 
-public interface ICandidate {
+public interface ICandidate extends Person {
+    int getYearsOfExperience();
 
-    String firstName();
-    String lastName();
-    int age();
-    int yearsOfExperience();
-    String branch();
-
-
+    String getBranch();
 }

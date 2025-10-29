@@ -1,7 +1,9 @@
 package org.example.datamodels.filters;
 
 import org.example.datamodels.CertifiedCandidate;
+import org.example.datamodels.interfaces.Certified;
 import org.example.datamodels.interfaces.ICandidate;
+import org.example.datamodels.interfaces.Person;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 

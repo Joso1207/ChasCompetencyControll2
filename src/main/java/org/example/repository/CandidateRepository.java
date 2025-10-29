@@ -1,10 +1,9 @@
 package org.example.repository;
 
-import com.sun.jdi.Value;
-import org.example.datamodels.filters.FilterPolicy;
+import org.example.datamodels.Candidate;
 import org.example.datamodels.interfaces.ICandidate;
+import org.example.datamodels.interfaces.Person;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
 public class CandidateRepository {
 
     Integer nextID = 0;
-    Map<Integer,ICandidate> repository = new HashMap<>();
+    Map<Integer, ICandidate> repository = new HashMap<>();
 
     public void addCandidate(ICandidate candidate){
 
@@ -25,7 +24,7 @@ public class CandidateRepository {
 
     }
 
-    public ICandidate getCanditate(Integer key){
+    public Person getCanditate(Integer key){
         return repository.get(key);
     }
 
@@ -33,11 +32,11 @@ public class CandidateRepository {
         repository.remove(key);
     }
 
-    public Map<Integer,ICandidate> getRepository(){
+    public Map<Integer, ICandidate> getRepository(){
         return repository;
     }
 
-    public List<ICandidate> getAllToList(){
+    public List<Person> getAllToList(){
         return new ArrayList<>(repository.values());
     }
 
@@ -74,7 +73,7 @@ public class CandidateRepository {
 
      */
 
-    public Map<Integer,ICandidate> getFilteredToList(Predicate<ICandidate> predicate){
+    public Map<Integer, ICandidate> getFilteredToList(Predicate<ICandidate> predicate){
 
         return repository.entrySet().stream()
                 .filter(c-> predicate.test(c.getValue())).collect(Collectors.toMap(
