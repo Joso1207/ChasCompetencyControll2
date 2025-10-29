@@ -16,8 +16,9 @@ public class Main {
 
         CandidateRepository repository = new CandidateRepository();
         CandidateFactory factory = new CandidateFactory();
-        repository.addCandidate(factory.createCandidate("Norr",10,"IT"));
-        repository.addCandidate(factory.createCertifiedCandidate("Norr",10,"Network", List.of("Cisco")));
+        repository.addCandidate(factory.createCandidate("Norr","Smith",10,"IT"));
+        repository.addCandidate(factory.createCertifiedCandidate("Norr","svensson",10,"Network", List.of("Cisco")));
+        repository.addCandidate(factory.createCertifiedCandidate("Janet","Abelsson",10,"IT", List.of("Cisco")));
 
         //BranchEqualsPredicate predicate = new BranchEqualsPredicate()
         System.out.println(repository.getFilteredToList(BranchFilter.branchMatchesPredicate("IT")));

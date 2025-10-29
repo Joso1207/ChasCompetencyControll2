@@ -10,13 +10,13 @@ import java.util.Set;
 
 public class CandidateFactory {
     
-    ICandidate createCandidate(String name, int yearsOfExperience,String branch){
-        return new Candidate(name,yearsOfExperience,branch);
+    ICandidate createCandidate(String firstName,String lastName, int yearsOfExperience,String branch){
+        return new Candidate(firstName,lastName,yearsOfExperience,branch);
 
     }
 
-    ICandidate createCertifiedCandidate(String name, int yearsOfExperience, String branch, Collection<String> _certificates){
-        return new CertifiedCandidate(name,yearsOfExperience,branch,new HashSet<String>(_certificates));
+    ICandidate createCertifiedCandidate(String firstName,String lastName, int yearsOfExperience, String branch, Collection<String> _certificates){
+        return new CertifiedCandidate(firstName,lastName,yearsOfExperience,branch,new HashSet<String>(_certificates));
     }
 
 }

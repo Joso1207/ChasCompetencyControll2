@@ -2,7 +2,9 @@ package org.example.datamodels.interfaces;
 
 public interface ICandidate {
 
-    String name();
+    String firstName();
+    String lastName();
+    int age();
     int yearsOfExperience();
     String branch();
 
