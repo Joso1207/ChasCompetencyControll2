@@ -18,12 +18,12 @@ public class CandidateFactory {
 
     private final static Logger log = LoggerFactory.getLogger(CandidateFactory.class);
     
-    ICandidate createCandidate(String firstName, String lastName, int age, int yearsOfExperience, String branch){
+    public ICandidate createCandidate(String firstName, String lastName, int age, int yearsOfExperience, String branch){
         return new Candidate(firstName,lastName, age,yearsOfExperience,branch);
 
     }
 
-    ICandidate createCertifiedCandidate(String firstName, String lastName, int age, int yearsOfExperience, String branch, Collection<String> _certificates){
+    public ICandidate createCertifiedCandidate(String firstName, String lastName, int age, int yearsOfExperience, String branch, Collection<String> _certificates){
         return new CertifiedCandidate(firstName,lastName,age,yearsOfExperience,branch,new HashSet<String>(_certificates));
     }
 
