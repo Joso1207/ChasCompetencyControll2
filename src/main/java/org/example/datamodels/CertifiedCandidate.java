@@ -22,4 +22,16 @@ public class CertifiedCandidate extends Candidate implements Certified {
     public Set<String> certificates() {
         return certificates;
     }
+
+
+
+    /*
+    Still follows Liskov since we arent changing the rules or "strictness" of the input/output with the overridden method.
+     */
+    @Override
+    public String toString() {
+        return super.toString() +
+                " certificates=" + certificates;
+
+    }
 }

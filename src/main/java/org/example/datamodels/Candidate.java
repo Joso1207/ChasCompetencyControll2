@@ -38,4 +38,16 @@ public class Candidate implements ICandidate {
     public String getBranch() {
         return branch;
     }
+
+    @Override
+    public String toString() {
+        return "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", yearsOfExperience=" + yearsOfExperience +
+                ", branch='" + branch + '\'';
+    }
+
+
+
 }

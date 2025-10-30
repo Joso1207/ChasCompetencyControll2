@@ -22,6 +22,14 @@ public class CertificationFilter {
                );
    }
 
+    public static @NotNull Predicate<ICandidate> hasCertificate(String cert){
+        return isCertified().and(
+                candidate -> ((CertifiedCandidate) candidate).certificates().contains(cert)
+        );
+    }
+
+
+
 
 
 }
