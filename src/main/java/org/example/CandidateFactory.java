@@ -3,10 +3,8 @@ package org.example;
 import org.example.datamodels.Candidate;
 import org.example.datamodels.CertifiedCandidate;
 import org.example.datamodels.interfaces.ICandidate;
-import org.example.datamodels.interfaces.Person;
 import org.example.menu.TerminalMenu;
 import org.example.menu.UserInputInterface;
-import org.example.services.RepositoryPrinter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +22,7 @@ public class CandidateFactory {
     }
 
     public ICandidate createCertifiedCandidate(String firstName, String lastName, int age, int yearsOfExperience, String branch, Collection<String> _certificates){
-        return new CertifiedCandidate(firstName,lastName,age,yearsOfExperience,branch,new HashSet<String>(_certificates));
+        return new CertifiedCandidate(firstName,lastName,age,yearsOfExperience,branch,new HashSet<>(_certificates));
     }
 
     public ICandidate gatherCandidateInformation(){

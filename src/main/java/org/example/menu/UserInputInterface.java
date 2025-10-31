@@ -5,7 +5,7 @@ package org.example.menu;
 //Like mentioned in OptionSelectionInterface, We have segregated the behaviors in the two interfaces, allowing us to rely on DIP
 //When we want to read user input we can use any implementation of this interface,
 // and if we want the user to make selections we can use any implementation of OptionSelectionInterface
-// We can have have IO classes which use one but not the other,  or classes which implement both depending on our needs.
+// We can have IO classes which use one but not the other,  or classes which implement both depending on our needs.
 
 public interface UserInputInterface {
 

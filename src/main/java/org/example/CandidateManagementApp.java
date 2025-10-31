@@ -5,13 +5,12 @@ import org.example.datamodels.interfaces.ICandidate;
 import org.example.datamodels.sorters.NameSorter;
 import org.example.menu.*;
 import org.example.repository.Repository;
-import org.example.services.RepositoryPrinter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-/*This class is the actual "application" end with the buisiness logic.
-Its merely the "switch" or "state" of the program and has a responsibility to move the user from one part of the logic to the other.
+/*This class is the actual "application" end with the business logic.
+It's merely the "switch" or "state" of the program and has a responsibility to move the user from one part of the logic to the other.
 
 Following the SRP, The only reason we would ever want to change this would be to change the logic, It does not however completely follow OCP.
 As we would need to add the functionality into the switch case and also add the option as a valid menu option.
@@ -27,7 +26,6 @@ public class CandidateManagementApp {
     private OptionSelectionInterface menu;
     private UserInputInterface input;
     private CandidateFactory factory = new CandidateFactory();
-    private RepositoryPrinter<ICandidate> printer = new RepositoryPrinter<>();
     private final static Logger log = LoggerFactory.getLogger(CandidateManagementApp.class);
 
     CandidateManagementApp(Repository<ICandidate> repository, OptionSelectionInterface optionSel, UserInputInterface uin){

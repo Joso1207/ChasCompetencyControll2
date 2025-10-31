@@ -27,7 +27,7 @@ public class CertifiedCandidate extends Candidate implements Certified {
 
 
     /*
-    Despite overriding the parent-class's function we follow Liskov since we arent changing the rules or "strictness" of the input/output with the overridden method.
+    Despite overriding the parent-class's function we follow Liskov since we aren't changing the rules or "strictness" of the input/output with the overridden method.
     One of the 4 core rules behind Liskov Substitution Principle
      */
     @Override

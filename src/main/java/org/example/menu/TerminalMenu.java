@@ -8,11 +8,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.List;
 import java.util.Set;
 
 //Our menu input/output class,  Its only purpose is to act as the bridge between user and program.
-//Showcasing the implemenation of our two relevant interfaces even if we could refactor this class into two seperate ones,
+//Showcasing the implementation of our two relevant interfaces even if we could refactor this class into two separate ones,
 //In my eyes, This implementation still only has a single purpose and follows SRP, So I will not do that
 //However,  if we at a point wanted to implement a feature or class which only requires the functionality behind one interface we can obviously have a more limited class made for that purpose.
 

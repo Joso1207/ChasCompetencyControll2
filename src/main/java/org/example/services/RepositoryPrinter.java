@@ -1,6 +1,5 @@
 package org.example.services;
 
-import org.example.datamodels.interfaces.ICandidate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

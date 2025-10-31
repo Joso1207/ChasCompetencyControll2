@@ -1,6 +1,5 @@
 package org.example.menu;
 
-import java.util.List;
 import java.util.Set;
 
 //An interface to allow for User inputs,

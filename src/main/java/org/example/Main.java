@@ -22,7 +22,7 @@ public class Main {
         System.out.println(menu.getMenuOptions());
 
         repository.add(factory.createCandidate("John","Smith",32,10,"Network"));
-        repository.add(factory.createCertifiedCandidate("Norr","svensson",50,10,"Network", List.of("Cisco")));
+        repository.add(factory.createCertifiedCandidate("Norr","Svensson",50,10,"Network", List.of("Cisco")));
         repository.add(factory.createCertifiedCandidate("Janet","Abelsson",25,10,"IT", List.of("Cisco")));
         repository.add(factory.createCandidate("Light","Frennec",28,2,"Network"));
         repository.add(factory.createCandidate("Karen","Smith",62,20,"HR"));

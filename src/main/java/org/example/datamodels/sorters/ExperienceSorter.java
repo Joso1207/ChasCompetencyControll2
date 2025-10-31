@@ -1,7 +1,7 @@
 package org.example.datamodels.sorters;
 
 import org.example.datamodels.interfaces.ICandidate;
-import org.example.datamodels.interfaces.Person;
+
 
 import java.util.Comparator;
 
