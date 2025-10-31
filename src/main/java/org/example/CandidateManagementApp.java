@@ -1,25 +1,24 @@
 package org.example;
 
 import org.example.datamodels.filters.*;
+import org.example.datamodels.interfaces.ICandidate;
 import org.example.datamodels.sorters.NameSorter;
 import org.example.menu.*;
-import org.example.repository.CandidateRepository;
+import org.example.repository.Repository;
 import org.example.services.RepositoryPrinter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
-
 public class CandidateManagementApp {
 
-    private CandidateRepository repository;
+    private Repository<ICandidate> repository;
     private OptionSelectionInterface menu;
     private UserInputInterface input;
     private CandidateFactory factory = new CandidateFactory();
-    private RepositoryPrinter printer = new RepositoryPrinter();
+    private RepositoryPrinter<ICandidate> printer = new RepositoryPrinter<>();
     private final static Logger log = LoggerFactory.getLogger(CandidateManagementApp.class);
 
-    CandidateManagementApp(CandidateRepository repository, OptionSelectionInterface optionSel,UserInputInterface uin){
+    CandidateManagementApp(Repository<ICandidate> repository, OptionSelectionInterface optionSel, UserInputInterface uin){
         this.repository = repository;
         this.menu = optionSel;
         this.input = uin;
@@ -32,9 +31,9 @@ public class CandidateManagementApp {
         while(running){
             menu.viewMenuOptions();
             switch(menu.selectMenuOption("Select a command","No Such command")){
-                case "add" -> repository.addCandidate(factory.gatherCandidateInformation());
+                case "add" -> repository.add(factory.gatherCandidateInformation());
                 case "remove" -> {try{
-                        repository.removeCandiate(input.readNumberInput("Candidate ID?","Not a number"));
+                        repository.remove(input.readNumberInput("Candidate ID?","Not a number"));
                     } catch (Exception e) {
                         log.error(e.getMessage());
                     }

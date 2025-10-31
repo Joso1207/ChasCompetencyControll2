@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CandidateRepositoryTest {
+class RepositoryTest {
 
 
 
@@ -22,14 +22,14 @@ class CandidateRepositoryTest {
 
     @Test
     void filterToMap() {
-        CandidateRepository repository = new CandidateRepository();
+        Repository<ICandidate> repository = new Repository<>();
         CandidateFactory factory = new CandidateFactory();
 
 
 
-        repository.addCandidate(factory.createCandidate("Norr","Smith",32,5,"Network"));
-        repository.addCandidate(factory.createCertifiedCandidate("Knorr","svensson",50,10,"Network", List.of("Cisco")));
-        repository.addCandidate(factory.createCertifiedCandidate("Janet","Abelsson",25,16,"IT", List.of("Cisco")));
+        repository.add(factory.createCandidate("Norr","Smith",32,5,"Network"));
+        repository.add(factory.createCertifiedCandidate("Knorr","svensson",50,10,"Network", List.of("Cisco")));
+        repository.add(factory.createCertifiedCandidate("Janet","Abelsson",25,16,"IT", List.of("Cisco")));
 
         Map<Integer, ICandidate> newmap = repository.filterToMap(ExperienceFilter.minimumYears(15));
         assertEquals(1,newmap.size());
@@ -41,13 +41,13 @@ class CandidateRepositoryTest {
     @Test
     void sortToList() {
 
-        CandidateRepository repository = new CandidateRepository();
+        Repository<ICandidate> repository = new Repository<>();
         CandidateFactory factory = new CandidateFactory();
 
 
-        repository.addCandidate(factory.createCandidate("Norr","Smith",32,5,"Network"));
-        repository.addCandidate(factory.createCertifiedCandidate("Abel","svensson",50,10,"Network", List.of("Cisco")));
-        repository.addCandidate(factory.createCertifiedCandidate("Janet","Abelsson",25,16,"IT", List.of("Cisco")));
+        repository.add(factory.createCandidate("Norr","Smith",32,5,"Network"));
+        repository.add(factory.createCertifiedCandidate("Abel","svensson",50,10,"Network", List.of("Cisco")));
+        repository.add(factory.createCertifiedCandidate("Janet","Abelsson",25,16,"IT", List.of("Cisco")));
 
         assertEquals("Abel",repository.sortToList(NameSorter::alphabetical).getFirst().getValue().getFirstName());
 

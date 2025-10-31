@@ -1,18 +1,17 @@
 package org.example.services;
 
 import org.example.datamodels.interfaces.ICandidate;
-import org.example.repository.CandidateRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Comparator;
 import java.util.Map;
 
-public class RepositoryPrinter {
+public class RepositoryPrinter<T> {
 
     private final static Logger log = LoggerFactory.getLogger(RepositoryPrinter.class);
 
-    public void print(Map<Integer,ICandidate> mapToPrint){
+    public void print(Map<Integer,T> mapToPrint){
 
         if(mapToPrint.isEmpty()){
             log.error("No Entries");
@@ -24,7 +23,7 @@ public class RepositoryPrinter {
         );
         log.info(":End of list:");
     }
-    public void printSorted(Map<Integer,ICandidate> mapToPrint, Comparator<ICandidate> compare){
+    public void printSorted(Map<Integer,T> mapToPrint, Comparator<T> compare){
 
         if(mapToPrint.isEmpty()){
             log.error("No Entries to sort");

@@ -1,7 +1,5 @@
 package org.example.repository;
 
-import org.example.Main;
-import org.example.datamodels.Candidate;
 import org.example.datamodels.interfaces.ICandidate;
 import org.example.datamodels.interfaces.Person;
 import org.example.services.RepositoryPrinter;
@@ -13,35 +11,44 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CandidateRepository {
 
-    private final static Logger log = LoggerFactory.getLogger(CandidateRepository.class);
+/*
+Note the change from CandidateRepository to a type-generic repository which can take any type or interface
+
+While the use of interfaces are important to OCP and DIP, being able to have a repository utilising any interface means its open to extention and reuse in other environments.
+If we later end up wanting the Repository to perform candidate specific operations and methods we can extend through the means available to us.
+Be it inheritance or composition
+
+ */
+public class Repository<T> {
+
+    private final static Logger log = LoggerFactory.getLogger(Repository.class);
     Integer nextID = 0;
-    Map<Integer, ICandidate> repository = new HashMap<>();
-    RepositoryPrinter printer = new RepositoryPrinter();
+    Map<Integer, T> repository = new HashMap<>();
+    RepositoryPrinter<T> printer = new RepositoryPrinter<T>();
 
-    public void addCandidate(ICandidate candidate){
+    public void add(T entry){
 
 
-        repository.put(nextID,candidate);
+        repository.put(nextID,entry);
         nextID++;
-        log.info("{} was added to repository", candidate.toString());
+        log.info("{} was added to repository", entry.toString());
 
     }
 
-    public Person getCanditate(Integer key){
+    public T get(Integer key){
         return repository.get(key);
     }
 
-    public void removeCandiate(Integer key){
+    public void remove(Integer key){
         log.info("Removed: {}", repository.remove(key));
     }
 
-    public Map<Integer, ICandidate> getRepository(){
+    public Map<Integer, T> getRepository(){
         return repository;
     }
 
-    public List<Person> getAllToList(){
+    public List<T> getAllToList(){
         return new ArrayList<>(repository.values());
     }
 
@@ -49,10 +56,10 @@ public class CandidateRepository {
         printer.print(repository);
     }
 
-    public void printFiltered(Predicate<ICandidate> predicate){
+    public void printFiltered(Predicate<T> predicate){
         printer.print(filterToMap(predicate));
     }
-    public void printSorted(Comparator<ICandidate> compare){
+    public void printSorted(Comparator<T> compare){
         printer.printSorted(repository,compare);
     }
 
@@ -96,7 +103,7 @@ public class CandidateRepository {
 
      */
 
-    public Map<Integer, ICandidate> filterToMap(Predicate<ICandidate> predicate){
+    public Map<Integer, T> filterToMap(Predicate<T> predicate){
 
         log.info("returned a filtered map with predicate {}",predicate.getClass());
         return repository.entrySet().stream()
@@ -109,7 +116,7 @@ public class CandidateRepository {
 
     }
 
-    public List<Map.Entry<Integer,ICandidate>> sortToList(Comparator<ICandidate> compare) {
+    public List<Map.Entry<Integer,T>> sortToList(Comparator<T> compare) {
         log.info("returned a filtered map with comparator {}",compare.getClass());
         return repository.entrySet().stream().sorted(
                 (e1,e2)-> compare.compare(

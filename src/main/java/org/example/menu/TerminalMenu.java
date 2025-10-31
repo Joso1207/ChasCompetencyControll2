@@ -1,7 +1,6 @@
 package org.example.menu;
 
 import org.example.exceptions.ElementIsEmptyException;
-import org.example.repository.CandidateRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

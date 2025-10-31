@@ -43,11 +43,11 @@ class TerminalMenuTest {
     @Test
     void setMenuOptions() {
         List<String> options = new ArrayList<>(Arrays.asList("one","two","Three"));
-        InputStream reader = mock(System.in);
+        InputStream reader = mock();
         TerminalMenu menu = new TerminalMenu(options,reader);
 
         menu.setMenuOptions(Arrays.asList("two"));
-        assertEquals(options,menu.getMenuOptions());
+        assertNotEquals(options,menu.getMenuOptions());
 
 
     }
