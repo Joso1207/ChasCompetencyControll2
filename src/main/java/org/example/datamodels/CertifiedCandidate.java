@@ -5,10 +5,11 @@ import org.example.datamodels.interfaces.Certified;
 import java.util.Set;
 
 
-/* A certified candidate is an extention of the Candidate Class, It merely is an extention
+/* A certified candidate is an extension of the Candidate Class, It merely is an extension
 that provides a new method and field while remaining an instance of Candidate.
 
-This form of usage is promoted by the Liskov Substitution Principle
+This form of usage is promoted by the Liskov Substitution Principle,
+And it being an extension means we have followed the Open Closed Principle.
 
 */
 public class CertifiedCandidate extends Candidate implements Certified {
@@ -26,7 +27,8 @@ public class CertifiedCandidate extends Candidate implements Certified {
 
 
     /*
-    Still follows Liskov since we arent changing the rules or "strictness" of the input/output with the overridden method.
+    Despite overriding the parent-class's function we follow Liskov since we arent changing the rules or "strictness" of the input/output with the overridden method.
+    One of the 4 core rules behind Liskov Substitution Principle
      */
     @Override
     public String toString() {

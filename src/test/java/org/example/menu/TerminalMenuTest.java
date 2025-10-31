@@ -21,6 +21,8 @@ class TerminalMenuTest {
     @Test
     void selectMenuOption() throws IOException {
 
+        //mock inputstream reader for dependency?
+        //probably not as dependency is from base language and can be 'stubbed' by simply defining the state of the stream
         List<String> options = new ArrayList<>(Arrays.asList("one","two","Three"));
         InputStream reader = new ByteArrayInputStream("one".getBytes());
         TerminalMenu menu = new TerminalMenu(options,reader);
@@ -32,7 +34,7 @@ class TerminalMenuTest {
     @Test
     void getMenuOptions() {
         List<String> options = new ArrayList<>(Arrays.asList("one","two","Three"));
-        InputStream reader = mock();
+        InputStream reader = mock(); //Probably not correct use of Mock but since InputStream is an abstract
         TerminalMenu menu = new TerminalMenu(options,reader);
 
         assertEquals(options,menu.getMenuOptions());

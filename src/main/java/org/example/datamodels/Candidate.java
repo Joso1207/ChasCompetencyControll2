@@ -3,6 +3,13 @@ package org.example.datamodels;
 import org.example.datamodels.interfaces.ICandidate;
 import org.example.datamodels.interfaces.Person;
 
+
+//This class specifically isnt a record class as records cannot be extended, and we want inheritance in this scenario.
+//Otherwise this is just a datamodel,  it doesnt transform,change or do anything other than store the data relevant to its own instance.
+
+//This means that for SRP its only purpose is to store its own data,  And thus the only reason to ever change it is if a change to the core datamodel occurs.
+//For OCP we can always extend this class through composition or inheritance  Such as the CertifiedCandidate Class
+
 public class Candidate implements ICandidate {
     protected String firstName;
     protected String lastName;

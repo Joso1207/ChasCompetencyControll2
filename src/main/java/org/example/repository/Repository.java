@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 
 /*
-Note the change from CandidateRepository to a type-generic repository which can take any type or interface
+Note the change from CandidateRepository to a type-generic repository in the commits, which can take any type or interface
 
 While the use of interfaces are important to OCP and DIP, being able to have a repository utilising any interface means its open to extention and reuse in other environments.
 If we later end up wanting the Repository to perform candidate specific operations and methods we can extend through the means available to us.
@@ -100,6 +100,10 @@ public class Repository<T> {
 
     After having cleared the window and begun a new instance I instead repeated from the start but made sure to bring up predicates and the context we have arrived at,
     it came back to this solution once more but both suggested and advised against extracting helpermethods. Specifically the predicate.test()
+
+    I tried a few more times with different prompts such as how one could improve this code, or presenting it similar to the first but with the context of predicates.
+    It refused to bring another solution other than those which would not work, such as hardcoding predicates into the function, or separate helper functions to an absurd degree.
+    Where both Filter and Collect became class methods.
 
      */
 

@@ -41,6 +41,8 @@ class RepositoryTest {
     @Test
     void sortToList() {
 
+
+        //Remove dependency on factory
         Repository<ICandidate> repository = new Repository<>();
         CandidateFactory factory = new CandidateFactory();
 
