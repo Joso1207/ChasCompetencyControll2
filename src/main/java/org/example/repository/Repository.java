@@ -114,10 +114,6 @@ public class Repository<T> {
                 .filter(c-> predicate.test(c.getValue())).collect(Collectors.toMap(
                         Map.Entry::getKey, Map.Entry::getValue
                 ));
-
-
-
-
     }
 
     public List<Map.Entry<Integer,T>> sortToList(Comparator<T> compare) {

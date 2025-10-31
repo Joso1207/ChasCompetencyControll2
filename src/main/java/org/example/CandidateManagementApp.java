@@ -9,6 +9,18 @@ import org.example.services.RepositoryPrinter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+/*This class is the actual "application" end with the buisiness logic.
+Its merely the "switch" or "state" of the program and has a responsibility to move the user from one part of the logic to the other.
+
+Following the SRP, The only reason we would ever want to change this would be to change the logic, It does not however completely follow OCP.
+As we would need to add the functionality into the switch case and also add the option as a valid menu option.
+We could make it follow OCP by storing
+
+
+
+
+ */
 public class CandidateManagementApp {
 
     private Repository<ICandidate> repository;

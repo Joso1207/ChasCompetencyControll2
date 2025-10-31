@@ -1,6 +1,7 @@
 package org.example.menu;
 
 import java.util.List;
+import java.util.Set;
 
 //An interface to allow for User inputs,
 // Specifically it is used for menu classes which only wants the user to make a selection.
@@ -8,9 +9,9 @@ import java.util.List;
 
 public interface OptionSelectionInterface {
 
-    void setMenuOptions(List<String> options);
+    void setMenuOptions(Set<String> options);
     String selectMenuOption(String message, String error);
-    List<String> getMenuOptions();
+    Set<String> getMenuOptions();
     void viewMenuOptions();
 
 }

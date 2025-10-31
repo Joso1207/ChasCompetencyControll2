@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Set;
 
 //Our menu input/output class,  Its only purpose is to act as the bridge between user and program.
 //Showcasing the implemenation of our two relevant interfaces even if we could refactor this class into two seperate ones,
@@ -19,10 +20,10 @@ public class TerminalMenu implements OptionSelectionInterface,UserInputInterface
 
     private final static Logger log = LoggerFactory.getLogger(TerminalMenu.class);
 
-    private List<String> menuOptions;
+    private Set<String> menuOptions;
     private BufferedReader reader;
 
-    public TerminalMenu(List<String> menuOptions,InputStream in){
+    public TerminalMenu(Set<String> menuOptions,InputStream in){
         reader = new BufferedReader(new InputStreamReader(in));
         this.menuOptions = menuOptions;
     }
@@ -63,7 +64,7 @@ public class TerminalMenu implements OptionSelectionInterface,UserInputInterface
     }
 
     @Override
-    public List<String> getMenuOptions() {
+    public Set<String> getMenuOptions() {
         return menuOptions;
     }
 
@@ -138,7 +139,7 @@ public class TerminalMenu implements OptionSelectionInterface,UserInputInterface
         return s;
     }
 
-    public void setMenuOptions(List<String> options) {
+    public void setMenuOptions(Set<String> options) {
         this.menuOptions = options;
     }
 
